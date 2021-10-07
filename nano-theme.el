@@ -167,6 +167,18 @@
   "Default background color"
   :type 'color :group 'nano-theme-light)
 
+(defcustom nano-light-background-alt "#FFFFFF" ;; White
+  "Alternate background color"
+  :type 'color :group 'nano-theme-light)
+
+(defcustom nano-light-selected-background "#FAFAFA" ;;  Very Light Grey
+  "Background color for menu selections"
+  :type 'color :group 'nano-theme-light)
+
+(defcustom nano-light-cursor-alt "#37474F" ;; Blue Grey / L800
+  "Alternate cursor color"
+  :type 'color :group 'nano-theme-light)
+
 (defcustom nano-light-highlight "#FAFAFA" ;; Very Light Grey
   "Highlight color is used to highlight part of the screen."
   :type 'color :group 'nano-theme-light)
@@ -179,12 +191,20 @@
   "Faded face is for information that are less important."
   :type 'color :group 'nano-theme-light)
 
+(defcustom nano-light-fringe "#B0BEC5" ;; Blue Grey / L200
+  "Fringe color"
+  :type 'color :group 'nano-theme-light)
+
 (defcustom nano-light-salient "#673AB7" ;; Deep Purple / L500
   "Salient color is used for information that are important."
   :type 'color :group 'nano-theme-light)
 
 (defcustom nano-light-strong "#000000" ;; Black
   "Strong color is used for information of a structural nature."
+  :type 'color :group 'nano-theme-light)
+
+(defcustom nano-light-bold "#000000" ;; Black
+  "Bold color is used for bold text."
   :type 'color :group 'nano-theme-light)
 
 (defcustom nano-light-popout "#FFAB91" ;; Deep Orange / L200
@@ -203,6 +223,18 @@
   "Default background color"
   :type 'color :group 'nano-theme-dark)
 
+(defcustom nano-dark-background-alt "#2E3440" ;; Polar Night 0 / nord  0
+  "Alternate background color"
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-selected-background "#3B4252" ;; Polar Night 1 / nord  1
+  "Background color for menu selections"
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-cursor-alt "#ECEFF4" ;; Snow Storm 3  / nord  6
+  "Alternate cursor color"
+  :type 'color :group 'nano-theme-dark)
+
 (defcustom nano-dark-highlight "#3B4252" ;; Polar Night 1 / nord  1
   "Highdark color is used to highdark part of the screen."
   :type 'color :group 'nano-theme-dark)
@@ -215,12 +247,20 @@
   "Faded face is for information that are less important."
   :type 'color :group 'nano-theme-dark)
 
-(defcustom nano-dark-salient "#81A1C1" ;; Frost         / nord  9 
+(defcustom nano-dark-fringe "#434C5E" ;; Polar Night 2 / nord  2
+  "Fringe color"
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-salient "#81A1C1" ;; Frost         / nord  9
   "Salient color is used for information that are important."
   :type 'color :group 'nano-theme-dark)
 
 (defcustom nano-dark-strong "#FFFFFF" ;; White
   "Strong color is used for information of a structural nature."
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-bold "#FFFFFF" ;; White
+  "Bold color is used for bold text."
   :type 'color :group 'nano-theme-dark)
 
 (defcustom nano-dark-popout "#D08770" ;; Aurora        / nord 12
