@@ -347,6 +347,7 @@ background color that is barely perceptible."
   "Default face inversed."
   :group nil)
 
+;;;###autoload
 (defun nano-mode ()
   "Defaults settings for nano (optional)"
   (interactive)
@@ -499,6 +500,7 @@ background color that is barely perceptible."
     
     new-frame))
 
+;;;###autoload
 (defun nano-dark ()
   "Load the nano dark theme on current frame."
 
@@ -507,6 +509,7 @@ background color that is barely perceptible."
   (set-background-color nano-dark-background)
   (load-theme 'nano-dark t))
 
+;;;###autoload
 (defun nano-light ()
   "Load the nano light theme on current frame."
 
@@ -587,8 +590,10 @@ background color that is barely perceptible."
    `(nano-subtle-i ((,light (:foreground ,nano-light-subtle))
                     (,dark  (:foreground ,nano-dark-subtle))))
    
-   `(nano-faded ((,light  (:foreground ,nano-light-faded))
-                 (,dark  (:foreground ,nano-dark-faded))))
+   `(nano-faded ((,light  (:foreground ,nano-light-faded
+                           :weight light))
+                 (,dark  (:foreground ,nano-dark-faded
+                          :weight light))))
 
    `(nano-faded-i ((,light (:foreground ,nano-light-background
                             :background ,nano-light-faded))
@@ -604,8 +609,10 @@ background color that is barely perceptible."
                               :background ,nano-dark-foreground))))
 
    
-   `(nano-salient ((,light (:foreground ,nano-light-salient))
-                   (,dark  (:foreground ,nano-dark-salient))))
+   `(nano-salient ((,light (:foreground ,nano-light-salient
+                            :weight light))
+                   (,dark  (:foreground ,nano-dark-salient
+                            :weight light))))
 
    `(nano-salient-i ((,light (:foreground ,nano-light-background
                               :background ,nano-light-salient))
@@ -684,7 +691,12 @@ background color that is barely perceptible."
    '(italic                      ((t (:inherit nano-faded))))
    '(bold-italic                 ((t (:inherit nano-strong))))
    '(region                      ((t (:inherit nano-subtle))))
-   '(fringe                      ((t (:inherit (nano-faded)))))
+   `(fringe                      ((,light (:foreground ,nano-light-fringe
+                                                       :background unspecified
+                                                       :inherit nano-faded))
+                                   (,dark (:foreground ,nano-dark-fringe
+                                                       :background ,nano-dark-background
+                                                       :inherit nano-faded))))
    '(hl-line                     ((t (:inherit highlight))))
    '(link                        ((t (:inherit nano-salient))))
    '(fixed-pitch                 ((t (:inherit default))))
@@ -708,8 +720,9 @@ background color that is barely perceptible."
    '(trailing-whitespace           ((t (:inherit nano-subtle))))
    '(secondary-selection           ((t (:inherit nano-subtle))))
    '(completions-annotations       ((t (:inherit nano-faded))))
-   '(completions-common-part       ((t (:inherit nano-faded))))
-   '(completions-first-difference  ((t (:inherit default))))
+   '(completions-common-part       ((t (:inherit nano-salient))))
+   '(child-frame-border            ((t (:background "#A1A1AA"))))
+   '(completions-first-difference  ((t (:inherit unspecified))))
    '(tooltip                       ((t (:inherit nano-subtle))))
    '(read-multiple-choice-face     ((t (:inherit nano-strong))))
    '(nobreak-hyphen                ((t (:inherit nano-popout))))
@@ -744,9 +757,14 @@ background color that is barely perceptible."
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
    
    ;; --- Font lock ----------------------------------------------------
-   '(font-lock-comment-face        ((t (:inherit nano-faded))))
+   '(font-lock-comment-face        ((t (:inherit nano-faded
+                                                 :weight light))))
    '(font-lock-doc-face            ((t (:inherit nano-faded))))
-   '(font-lock-string-face         ((t (:inherit nano-popout))))
+   ;; enh-ruby-mode requires that a few faces actually have :foreground set
+   `(font-lock-string-face         ((,light (:inherit nano-popout
+                                                       :foreground ,nano-light-popout))
+                                     (,dark (:inherit nano-popout
+                                                     :foreground ,nano-dark-popout))))
    '(font-lock-constant-face       ((t (:inherit nano-salient))))
    '(font-lock-warning-face        ((t (:inherit nano-popout))))
    '(font-lock-function-name-face  ((t (:inherit nano-strong))))
@@ -754,6 +772,10 @@ background color that is barely perceptible."
    '(font-lock-builtin-face        ((t (:inherit nano-salient))))
    '(font-lock-type-face           ((t (:inherit nano-salient))))
    '(font-lock-keyword-face        ((t (:inherit nano-salient))))
+   `(font-lock-keyword-face         ((,light (:inherit nano-salient
+                                                       :foreground ,nano-light-salient))
+                                     (,dark (:inherit nano-popout
+                                                       :foreground ,nano-dark-salient))))
 
    ;; --- Custom edit --------------------------------------------------
    '(widget-field                  ((t (:inherit nano-subtle))))
@@ -774,21 +796,79 @@ background color that is barely perceptible."
    '(custom-link                   ((t (:inherit nano-salient))))
    '(custom-variable-obsolete      ((t (:inherit nano-faded))))
 
+   ;; AJ: Double check
    ;; --- Company tooltip ----------------------------------------------
-    '(company-tooltip                      ((t (:inherit nano-subtle))))
+    `(company-tooltip                      ((,light (:inherit nano-default
+                                                     :background ,nano-light-background-alt))
+                                            (,dark (:inherit nano-default
+                                                    :background ,nano-dark-background-alt))))
     '(company-tooltip-mouse                ((t (:inherit nano-faded-i))))
-    '(company-tooltip-selection            ((t (:inherit nano-salient-i))))
+    `(company-tooltip-selection            ((,light (:inherit nano-default
+                                                     :background ,nano-light-selected-background))
+                                            (,dark (:inherit nano-default
+                                                    :background ,nano-dark-selected-background))))
 
-    '(company-scrollbar-fg                 ((t (:inherit nano-default-i))))
-    '(company-scrollbar-bg                 ((t (:inherit nano-faded-i))))
+    `(company-scrollbar-fg                 ((,light (:background ,nano-light-subtle))
+                                            (,dark (:background ,nano-dark-subtle))))
+    `(company-scrollbar-bg                 ((,light (:background ,nano-light-highlight))
+                                            (,dark (:background ,nano-dark-highlight))))
 
-    '(company-tooltip-common               ((t (:inherit nano-strong))))
-    '(company-tooltip-common-selection     ((t (:inherit nano-salient-i
-                                                :weight normal))))
-    '(company-tooltip-annotation           ((t (:inherit nano-default))))
-    '(company-tooltip-annotation-selection ((t (:inherit nano-subtle))))
+    `(company-tooltip-common               ((,light (:inherit nano-strong
+                                                     :background ,nano-light-background-alt))
+                                            (,dark (:inherit nano-strong
+                                                    :background ,nano-dark-background-alt))))
+    `(company-tooltip-common-selection     ((,light (:inherit nano-strong
+                                                     :background ,nano-light-selected-background))
+                                            (,dark (:inherit nano-strong
+                                                    :background ,nano-dark-selected-background))))
+    `(company-tooltip-annotation           ((,light (:inherit nano-default
+                                                     :background ,nano-light-background-alt))
+                                            (,dark (:inherit nano-default
+                                                    :background ,nano-dark-background-alt))))
+    `(company-tooltip-annotation           ((,light (:inherit (nano-strong nano-default)
+                                                     :background ,nano-light-selected-background))
+                                            (,dark (:inherit (nano-strong nano-default)
+                                                    :background ,nano-dark-selected-background))))
 
-   
+   ;; --- Dired --------------------------------------------------------
+   '(dired-directory                      ((t (:inherit nano-strong))))
+
+   ;; --- Enh Ruby Mode ------------------------------------------------
+   '(enh-ruby-string-delimiter-face       ((t (:inherit font-lock-string-face))))
+   `(erm-syn-errline                      ((,light (:box unspecified :underline (:color ,nano-light-critical :style wave)))
+                                           (,dark (:box unspecified :underline (:color ,nano-dark-critical :style wave)))))
+
+   ;; --- Evil MC ------------------------------------------------------
+   `(evil-mc-cursor-default-face          ((,light (:background ,nano-light-cursor-alt))
+                                           (,dark (:background ,nano-dark-cursor-alt))))
+
+   ;; --- Terraform Mode -----------------------------------------------
+   '(terraform--resource-name-face        ((t (:inherit nano-popout))))
+   '(terraform--resource-type-face        ((t (:inherit nano-popout))))
+
+   ;; --- LSP Mode ----------------------------------------------------
+   '(lsp-face-highlight-read              ((t (:inherit nano-default
+                                               :underline t))))
+
+   ;; --- Dired Subtree -----------------------------------------------
+   '(dired-subtree-depth-1-face           ((t (:background unspecified))))
+   '(dired-subtree-depth-2-face           ((t (:background unspecified))))
+   '(dired-subtree-depth-3-face           ((t (:background unspecified))))
+   '(dired-subtree-depth-4-face           ((t (:background unspecified))))
+   '(dired-subtree-depth-5-face           ((t (:background unspecified))))
+   '(dired-subtree-depth-6-face           ((t (:background unspecified))))
+
+   ;; --- Magit Delta -------------------------------------------------
+   '(magit-diff-added-highlight           ((t (:background "#d0ffd0"))))
+   '(magit-diff-added                     ((t (:background "#d0ffd0"
+                                               :foreground "#234626"))))
+   '(magit-diff-removed-highlight         ((t (:background "#ffe0e0"))))
+   '(magit-diff-removed                   ((t (:background "#ffe0e0"
+                                               :foreground "#5d272c"))))
+
+   ;; --- Vertico ------------------------------------------------------
+   `(vertico-current                      ((t (:inherit nano-subtle))))
+
    ;; --- Buttons ------------------------------------------------------
    `(custom-button
      ((,light (:foreground ,nano-light-faded
@@ -924,7 +1004,8 @@ background color that is barely perceptible."
    
    ;; --- Fly spell ----------------------------------------------------
    '(flyspell-duplicate             ((t (:inherit nano-popout))))
-   '(flyspell-incorrect             ((t (:inherit nano-popout))))
+   `(flyspell-incorrect             ((,light (:underline (:color ,nano-light-salient :style wave)))
+                                     (,dark (:underline (:color ,nano-dark-salient :style wave)))))
 
    ;; --- Org agenda ---------------------------------------------------
    '(org-agenda-calendar-event      ((t (:inherit nano-default))))
@@ -949,9 +1030,19 @@ background color that is barely perceptible."
 
    ;; --- Org ----------------------------------------------------------
    '(org-archived                            ((t (:inherit nano-faded))))
-   '(org-block                               ((t (:inherit highlight))))
-   '(org-block-begin-line                    ((t (:inherit nano-faded))))
-   '(org-block-end-line                      ((t (:inherit nano-faded))))
+   '(org-block                               ((t (:inherit hl-line :extend t))))
+   `(org-block-begin-line                    ((,light (:inherit nano-faded
+                                                       :background ,nano-light-subtle
+                                                       :extend t))
+                                               (,dark (:inherit nano-faded
+                                                       :background ,nano-dark-subtle
+                                                       :extend t))))
+   `(org-block-end-line                      ((,light (:inherit nano-faded
+                                                       :background ,nano-light-subtle
+                                                       :extend t))
+                                               (,dark (:inherit nano-faded
+                                                       :background ,nano-dark-subtle
+                                                       :extend t))))
    '(org-checkbox                            ((t (:inherit nano-faded))))
    '(org-checkbox-statistics-done            ((t (:inherit nano-faded))))
    '(org-checkbox-statistics-todo            ((t (:inherit nano-faded))))
@@ -974,10 +1065,18 @@ background color that is barely perceptible."
    ;; '(org-hide                                ((t (:inherit nano-subtle-i))))
    ;; '(org-indent                              ((t (:inherit nano-subtle-i))))
    '(org-latex-and-related                   ((t (:inherit nano-faded))))
-   '(org-level-1                             ((t (:inherit nano-strong))))
-   '(org-level-2                             ((t (:inherit nano-strong))))
-   '(org-level-3                             ((t (:inherit nano-strong))))
-   '(org-level-4                             ((t (:inherit nano-strong))))
+   '(org-level-1                             ((t (:inherit nano-strong
+                                                           :weight light
+                                                           :height 1.875))))
+   '(org-level-2                             ((t (:inherit nano-strong
+                                                           :weight light
+                                                           :height 1.3125))))
+   '(org-level-3                             ((t (:inherit nano-strong
+                                                           :weight medium
+                                                           :height 1.0))))
+   '(org-level-4                             ((t (:inherit nano-strong
+                                                           :weight normal
+                                                           :height 1.0))))
    '(org-level-5                             ((t (:inherit nano-strong))))
    '(org-level-6                             ((t (:inherit nano-strong))))
    '(org-level-7                             ((t (:inherit nano-strong))))
@@ -1003,7 +1102,8 @@ background color that is barely perceptible."
    '(org-time-grid                           ((t (:inherit nano-faded))))
    '(org-todo                                ((t (:inherit nano-salient))))
    '(org-upcoming-deadline                   ((t (:inherit nano-popout))))
-   '(org-verbatim                            ((t (:inherit nano-popout))))
+   `(org-verbatim                            ((,light (:background ,nano-light-background-alt))
+                                              (,dark (:background ,nano-dark-background-alt))))
    '(org-verse                               ((t (:inherit nano-faded))))
    '(org-warning                             ((t (:inherit nano-popout))))
 
