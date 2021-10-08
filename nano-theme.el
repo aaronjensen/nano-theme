@@ -676,11 +676,11 @@ background color that is barely perceptible."
                     :style nil)))))
 
    `(header-line ((,light (:foreground ,nano-light-foreground
-                           :background ,nano-light-subtle
+                           :background ,nano-light-background
                            :inherit nil
                            :box nil))
           (,dark  (:foreground ,nano-dark-foreground
-                   :background ,nano-dark-subtle
+                   :background ,nano-dark-background
                            :inherit nil
                            :box nil))))
 
@@ -927,7 +927,8 @@ background color that is barely perceptible."
    ;; --- Nano modeline ------------------------------------------------
    '(nano-modeline-active               ((t (:inherit nano-subtle))))
    '(nano-modeline-active-name          ((t (:inherit (nano-strong nano-modeline-active)))))
-   '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)))))
+   '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
+                                             :height 0.7373))))
    '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active)))))
    '(nano-modeline-active-status-RO     ((t (:inherit nano-popout-i))))
    '(nano-modeline-active-status-RW     ((t (:inherit nano-faded-i))))
