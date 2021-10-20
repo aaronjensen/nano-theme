@@ -837,6 +837,8 @@ background color that is barely perceptible."
    '(enh-ruby-string-delimiter-face       ((t (:inherit font-lock-string-face))))
    `(erm-syn-errline                      ((,light (:box unspecified :underline (:color ,nano-light-critical :style wave)))
                                            (,dark (:box unspecified :underline (:color ,nano-dark-critical :style wave)))))
+   `(erm-syn-warnline                     ((,light (:box unspecified :underline (:color ,nano-light-popout :style wave)))
+                                           (,dark (:box unspecified :underline (:color ,nano-dark-popout :style wave)))))
 
    ;; --- Evil MC ------------------------------------------------------
    `(evil-mc-cursor-default-face          ((,light (:background ,nano-light-cursor-alt))
