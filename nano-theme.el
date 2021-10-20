@@ -762,20 +762,19 @@ background color that is barely perceptible."
    '(font-lock-doc-face            ((t (:inherit nano-faded))))
    ;; enh-ruby-mode requires that a few faces actually have :foreground set
    `(font-lock-string-face         ((,light (:inherit nano-popout
-                                                       :foreground ,nano-light-popout))
-                                     (,dark (:inherit nano-popout
-                                                     :foreground ,nano-dark-popout))))
+                                             :foreground ,nano-light-popout))
+                                    (,dark (:inherit nano-popout
+                                            :foreground ,nano-dark-popout))))
    '(font-lock-constant-face       ((t (:inherit nano-salient))))
    '(font-lock-warning-face        ((t (:inherit nano-popout))))
    '(font-lock-function-name-face  ((t (:inherit nano-strong))))
    '(font-lock-variable-name-face  ((t (:inherit nano-strong nano-salient))))
    '(font-lock-builtin-face        ((t (:inherit nano-salient))))
    '(font-lock-type-face           ((t (:inherit nano-salient))))
-   '(font-lock-keyword-face        ((t (:inherit nano-salient))))
-   `(font-lock-keyword-face         ((,light (:inherit nano-salient
-                                                       :foreground ,nano-light-salient))
-                                     (,dark (:inherit nano-popout
-                                                       :foreground ,nano-dark-salient))))
+   `(font-lock-keyword-face        ((,light (:inherit nano-salient
+                                             :foreground ,nano-light-salient))
+                                    (,dark (:inherit nano-popout
+                                            :foreground ,nano-dark-salient))))
 
    ;; --- Custom edit --------------------------------------------------
    '(widget-field                  ((t (:inherit nano-subtle))))
