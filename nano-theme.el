@@ -755,13 +755,12 @@ background color that is barely perceptible."
    
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
-   '(line-number-current-line     ((t (:inherit default))))
-   `(line-number-major-tick       ((t (:inherit nano-faded))))
+   '(line-number-current-line     ((t (:inherit default :weight light))))
+   '(line-number-major-tick       ((t (:inherit nano-faded))))
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
    
    ;; --- Font lock ----------------------------------------------------
-   '(font-lock-comment-face        ((t (:inherit nano-faded
-                                                 :weight light))))
+   '(font-lock-comment-face        ((t (:inherit nano-faded))))
    '(font-lock-doc-face            ((t (:inherit nano-faded))))
    ;; enh-ruby-mode requires that a few faces actually have :foreground set
    `(font-lock-string-face         ((,light (:inherit nano-popout
