@@ -715,12 +715,12 @@ background color that is barely perceptible."
 
    `(header-line ((,light (:foreground ,nano-light-foreground
                            :background ,nano-light-background
-                           :inherit nil
+                           :inherit variable-pitch
                            :box nil))
           (,dark  (:foreground ,nano-dark-foreground
                    :background ,nano-dark-background
-                           :inherit nil
-                           :box nil))))
+                   :inherit variable-pitch
+                   :box nil))))
 
    
    ;; --- Structural ---------------------------------------------------
@@ -967,22 +967,23 @@ background color that is barely perceptible."
 
    ;; --- Nano modeline ------------------------------------------------
    '(nano-modeline-active               ((t (:inherit nano-subtle))))
-   '(nano-modeline-active-name          ((t (:inherit (nano-strong nano-modeline-active)))))
+   '(nano-modeline-active-name          ((t (:weight semibold
+                                             :inherit (nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
                                              :height 0.7373))))
-   '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active)))))
-   '(nano-modeline-active-status-RO     ((t (:inherit nano-popout-i))))
-   '(nano-modeline-active-status-RW     ((t (:inherit nano-faded-i))))
-   '(nano-modeline-active-status-**     ((t (:inherit nano-critical))))      
+   '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active fixed-pitch)))))
+   '(nano-modeline-active-status-RO     ((t (:inherit (nano-popout-i fixed-pitch)))))
+   '(nano-modeline-active-status-RW     ((t (:inherit (nano-faded-i fixed-pitch)))))
+   '(nano-modeline-active-status-**     ((t (:inherit (nano-critical fixed-pitch)))))
 
    '(nano-modeline-inactive             ((t (:inherit nano-subtle))))
    '(nano-modeline-inactive-name        ((t (:inherit (nano-faded nano-modeline-inactive)))))
    '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)
                                              :height 0.7373))))
-   '(nano-modeline-inactive-secondary   ((t (:inherit (nano-faded nano-modeline-inactive)))))
-   '(nano-modeline-inactive-status-RO   ((t (:inherit (nano-popout nano-modeline-inactive)))))
-   '(nano-modeline-inactive-status-RW   ((t (:inherit (nano-faded nano-modeline-inactive)))))
-   '(nano-modeline-inactive-status-**   ((t (:inherit (nano-critical-i nano-modeline-inactive)))))
+   '(nano-modeline-inactive-secondary   ((t (:inherit (nano-faded nano-modeline-inactive fixed-pitch)))))
+   '(nano-modeline-inactive-status-RO   ((t (:inherit (nano-popout nano-modeline-inactive fixed-pitch)))))
+   '(nano-modeline-inactive-status-RW   ((t (:inherit (nano-faded nano-modeline-inactive fixed-pitch)))))
+   '(nano-modeline-inactive-status-**   ((t (:inherit (nano-critical-i nano-modeline-inactive fixed-pitch)))))
 
    ;; --- nano agenda ---------------------------------------------------------
    '(nano-agenda-button               ((t (:inherit (nano-faded)))))
