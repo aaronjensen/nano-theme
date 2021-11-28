@@ -970,16 +970,17 @@ background color that is barely perceptible."
    '(nano-modeline-active-name          ((t (:weight semibold
                                              :inherit (nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
-                                             :height 0.7373))))
+                                             :height 0.8))))
    '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active fixed-pitch)))))
    '(nano-modeline-active-status-RO     ((t (:inherit (nano-popout-i fixed-pitch)))))
    '(nano-modeline-active-status-RW     ((t (:inherit (nano-faded-i fixed-pitch)))))
    '(nano-modeline-active-status-**     ((t (:inherit (nano-critical fixed-pitch)))))
 
    '(nano-modeline-inactive             ((t (:inherit nano-subtle))))
-   '(nano-modeline-inactive-name        ((t (:inherit (nano-faded nano-modeline-inactive)))))
+   '(nano-modeline-inactive-name        ((t (:weight semibold
+                                             :inherit (nano-faded nano-modeline-inactive)))))
    '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)
-                                             :height 0.7373))))
+                                             :height 0.8))))
    '(nano-modeline-inactive-secondary   ((t (:inherit (nano-faded nano-modeline-inactive fixed-pitch)))))
    '(nano-modeline-inactive-status-RO   ((t (:inherit (nano-popout nano-modeline-inactive fixed-pitch)))))
    '(nano-modeline-inactive-status-RW   ((t (:inherit (nano-faded nano-modeline-inactive fixed-pitch)))))
