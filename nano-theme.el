@@ -163,6 +163,10 @@
   "Default foreground color"
   :type 'color :group 'nano-theme-light)
 
+(defcustom nano-light-foreground-alt "#37474F" ;; Blue Grey / L800
+  "Alternate foreground color"
+  :type 'color :group 'nano-theme-light)
+
 (defcustom nano-light-background "#FFFFFF" ;; White
   "Default background color"
   :type 'color :group 'nano-theme-light)
@@ -217,6 +221,10 @@
 
 (defcustom nano-dark-foreground "#ECEFF4" ;; Snow Storm 3  / nord  6
   "Default foreground color"
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-foreground-alt "#ECEFF4" ;; Snow Storm 3  / nord  6
+  "Alternate foreground color"
   :type 'color :group 'nano-theme-dark)
 
 (defcustom nano-dark-background "#2E3440" ;; Polar Night 0 / nord  0
@@ -785,10 +793,15 @@ background color that is barely perceptible."
    ;; --- Tab bar ------------------------------------------------------
    '(tab-bar                       ((t (:inherit (variable-pitch default)))))
    `(tab-bar-tab                   ((,light (:background ,nano-light-background-alt
+                                             :foreground ,nano-light-foreground-alt
+                                             :weight light
                                              :box (:line-width (8 . 2) :color nil :style flat-button)))
                                     (,dark  (:background ,nano-dark-background-alt
+                                             :foreground ,nano-dark-foreground-alt
+                                             :weight light
                                              :box (:line-width (8 . 2) :color nil :style flat-button)))))
-   '(tab-bar-tab-inactive          ((t (:box (:line-width (8 . 2) :color nil :style flat-button)))))
+   '(tab-bar-tab-inactive          ((t (:box (:line-width (8 . 2) :color nil :style flat-button)
+                                        :weight light))))
    '(tab-line                      ((t (:inherit default))))
    
    ;; --- Line numbers -------------------------------------------------
