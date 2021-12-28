@@ -860,9 +860,9 @@ background color that is barely perceptible."
                                             (,dark (:inherit nano-default
                                                     :background ,nano-dark-selected-background))))
 
-    `(company-scrollbar-fg                 ((,light (:background ,nano-light-subtle))
+    `(company-tooltip-scrollbar-thumb      ((,light (:background ,nano-light-subtle))
                                             (,dark (:background ,nano-dark-subtle))))
-    `(company-scrollbar-bg                 ((,light (:background ,nano-light-highlight))
+    `(company-tooltip-scrollbar-track      ((,light (:background ,nano-light-highlight))
                                             (,dark (:background ,nano-dark-highlight))))
 
     `(company-tooltip-common               ((,light (:inherit nano-strong
