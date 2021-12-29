@@ -762,7 +762,10 @@ background color that is barely perceptible."
                                     (,dark (:background ,nano-dark-background-alt
                                                         :inherit nano-strong))))
    '(show-paren-mismatch           ((t (:inherit nano-critical))))
-   '(lazy-highlight                ((t (:inherit nano-subtle))))
+   `(lazy-highlight                ((,light (:inherit nano-default
+                                             :background ,nano-light-selected-background))
+                                     (,dark (:inherit nano-default
+                                             :background ,nano-dark-selected-background))))
    '(trailing-whitespace           ((t (:inherit nano-subtle))))
    '(secondary-selection           ((t (:inherit nano-subtle))))
    '(completions-annotations       ((t (:inherit nano-faded))))
