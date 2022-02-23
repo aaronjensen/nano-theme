@@ -1499,18 +1499,18 @@ background color that is barely perceptible."
     ;; --- Terminal ----------------------------------------------------
     '(term-bold        ((t (:inherit nano-strong))))
     '(term-color-black ((t (:inherit default))))
-    '(term-color-blue ((t (:foreground "#42A5F5"        ;; material color blue L400
-                           :background "#BBDEFB"))))    ;; material color blue L100
-    '(term-color-cyan ((t (:foreground "#26C6DA"        ;; material color cyan L400
-                           :background "#B2EBF2"))))    ;; material color cyan L100
-    '(term-color-green ((t (:foreground "#66BB6A"       ;; material color green L400
-                            :background "#C8E6C9"))))   ;; material color green L100
-    '(term-color-magenta ((t (:foreground "#AB47BC"     ;; material color purple L400
-                              :background "#E1BEE7")))) ;; material color purple L100
-    '(term-color-red ((t (:foreground "#EF5350"         ;; material color red L400
-                          :background "#FFCDD2"))))     ;; material color red L100
-    '(term-color-yellow ((t (:foreground "#FFEE58"      ;; material color yellow L400
-                             :background "#FFF9C4"))))  ;; material color yellow L100
+    '(term-color-blue ((t (:foreground "#0369a1"
+                           :background "#e0f2fe"))))
+    '(term-color-cyan ((t (:foreground "#0f766e"
+                           :background "#99f6e4"))))
+    '(term-color-green ((t (:foreground "#15803d"
+                            :background "#bbf7d0"))))
+    '(term-color-magenta ((t (:foreground "#a21caf"
+                              :background "#f5d0fe"))))
+    '(term-color-red ((t (:foreground "#b91c1c"
+                          :background "#fecaca"))))
+    '(term-color-yellow ((t (:foreground "#a16207"
+                             :background "#fef08a"))))
     ))
 
   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
