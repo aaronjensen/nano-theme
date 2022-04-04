@@ -771,8 +771,8 @@ background color that is barely perceptible."
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
    
    ;; --- Windows divider ----------------------------------------------
-   `(window-divider                ((,light (:foreground ,nano-light-background-alt))
-                        (,dark  (:foreground ,nano-dark-background-alt))))
+   `(window-divider                ((,light (:foreground ,nano-light-subtle))
+                        (,dark  (:foreground ,nano-dark-subtle))))
    '(window-divider-first-pixel    ((t (:inherit window-divider))))
    '(window-divider-last-pixel     ((t (:inherit window-divider))))
    `(vertical-border               ((,light (:foreground ,nano-light-background))
