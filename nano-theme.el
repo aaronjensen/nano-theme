@@ -779,17 +779,15 @@ background color that is barely perceptible."
                         (,dark  (:foreground ,nano-dark-background))))
 
    ;; --- Tab bar ------------------------------------------------------
-   '(tab-bar                       ((t (:inherit (variable-pitch default)))))
+   '(tab-bar                       ((t (:weight light
+                                        :inherit (variable-pitch default)
+                                        :box (:line-width (8 . 2) :color nil :style flat-button)))))
    `(tab-bar-tab                   ((,light (:background ,nano-light-background-alt
-                                             :foreground ,nano-light-foreground-alt
-                                             :weight light
-                                             :box (:line-width (8 . 2) :color nil :style flat-button)))
+                                             :foreground ,nano-light-foreground-alt))
                                     (,dark  (:background ,nano-dark-background-alt
-                                             :foreground ,nano-dark-foreground-alt
-                                             :weight light
-                                             :box (:line-width (8 . 2) :color nil :style flat-button)))))
-   '(tab-bar-tab-inactive          ((t (:box (:line-width (8 . 2) :color nil :style flat-button)
-                                        :weight light))))
+                                             :foreground ,nano-dark-foreground-alt))))
+   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground))
+                                    (,dark  (:foreground ,nano-dark-foreground))))
    '(tab-line                      ((t (:inherit default))))
    
    ;; --- Line numbers -------------------------------------------------
