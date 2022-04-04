@@ -836,6 +836,10 @@ background color that is barely perceptible."
    '(custom-link                   ((t (:inherit nano-salient))))
    '(custom-variable-obsolete      ((t (:inherit nano-faded))))
 
+   ;; --- Anzu ---------------------------------------------------------
+
+   '(anzu-mode-line ((t (:inherit nano-popout))))
+
    ;; AJ: Double check
    ;; --- Company tooltip ----------------------------------------------
     `(company-tooltip                      ((,light (:inherit nano-default
