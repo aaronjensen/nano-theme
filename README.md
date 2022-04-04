@@ -1,5 +1,7 @@
 ## GNU Emacs / N Λ N O Theme 
 
+**Note:** This is my custom fork which relies on my (private) config, so not everything in here will make sense without it. You should probably stick with the original and customize to your liking.
+
 A consistent theme for GNU Emacs. The light theme is based on [Material
 colors](https://material.io/) and the dark theme is based on [Nord
 colors](https://www.nordtheme.com/).
