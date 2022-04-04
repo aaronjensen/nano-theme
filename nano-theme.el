@@ -782,10 +782,12 @@ background color that is barely perceptible."
    '(tab-bar                       ((t (:weight light
                                         :inherit (variable-pitch default)
                                         :box (:line-width (8 . 2) :color nil :style flat-button)))))
-   `(tab-bar-tab                   ((,light (:background ,nano-light-background-alt
-                                             :foreground ,nano-light-foreground-alt))
-                                    (,dark  (:background ,nano-dark-background-alt
-                                             :foreground ,nano-dark-foreground-alt))))
+   `(tab-bar-tab                   ((,light (:background ,nano-light-highlight
+                                             :foreground ,nano-light-foreground-alt
+                                             :underline (:color ,nano-light-cursor-alt :position 0)))
+                                    (,dark  (:background ,nano-dark-highlight
+                                             :foreground ,nano-dark-foreground-alt
+                                             :underline (:color ,nano-dark-cursor-alt :position 0)))))
    `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground))
                                     (,dark  (:foreground ,nano-dark-foreground))))
    '(tab-line                      ((t (:inherit default))))
