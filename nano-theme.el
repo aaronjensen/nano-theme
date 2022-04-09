@@ -971,8 +971,9 @@ background color that is barely perceptible."
    '(helpful-heading                ((t (:inherit nano-strong))))
 
    ;; --- Nano modeline ------------------------------------------------
-   `(nano-modeline-active               ((,light :background ,nano-light-background-alt :box nil)
-                                         (,dark :background ,nano-dark-background-alt :box nil)))
+   `(nano-modeline-active               ((,light (:background ,nano-light-background-alt
+                                                              :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)))
+                                         (,dark (:background ,nano-dark-background-alt :box nil))))
    '(nano-modeline-active-name          ((t (:weight semibold
                                              :inherit (nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
@@ -982,8 +983,9 @@ background color that is barely perceptible."
    '(nano-modeline-active-status-RW     ((t (:inherit (nano-faded-i fixed-pitch)))))
    '(nano-modeline-active-status-**     ((t (:inherit (nano-critical fixed-pitch)))))
 
-   `(nano-modeline-inactive             ((,light :background ,nano-light-background-alt :box nil)
-                                         (,dark :background ,nano-dark-background-alt :box nil)))
+   `(nano-modeline-inactive             ((,light (:background ,nano-light-background-alt
+                                                  :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)))
+                                         (,dark (:background ,nano-dark-background-alt :box nil))))
    '(nano-modeline-inactive-name        ((t (:weight semibold
                                              :inherit (nano-faded nano-modeline-inactive)))))
    '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)
