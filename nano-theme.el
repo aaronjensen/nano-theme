@@ -1078,10 +1078,17 @@ background color that is barely perceptible."
    
    ;; --- Corfu --------------------------------------------------------
    '(corfu-annotations              ((t (:inherit nano-faded))))
-   '(corfu-bar                      ((t (:inherit nano-default-i))))
-   '(corfu-border                   ((t (:inherit nano-default-i))))
-   '(corfu-current                  ((t (:inherit highlight))))
-   '(corfu-default                  ((t (:inherit nano-subtle))))
+   '(corfu-bar                      ((t (:inherit nano-faded-i))))
+   `(corfu-border                   ((,light (:background ,nano-light-subtle))
+                                     (,dark (:background ,nano-dark-subtle))))
+   `(corfu-current                  ((,light (:inherit nano-default
+                                                       :background ,nano-light-selected-background))
+                                     (,dark (:inherit nano-default
+                                                      :background ,nano-dark-selected-background))))
+   `(corfu-default                  ((,light (:inherit nano-default
+                                                       :background ,nano-light-background-alt))
+                                     (,dark (:inherit nano-default
+                                                      :background ,nano-dark-background-alt))))
    '(corfu-deprecated               ((t (:inherit nano-faded))))
    '(corfu-echo                     ((t (:inherit nano-faded))))
 
