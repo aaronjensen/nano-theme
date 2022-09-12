@@ -94,6 +94,10 @@
 
 ;;; NEWS:
 
+;; Version 0.3.2
+;; - Fix magit diff whitespace
+;; - Update mu4e faces (1.8.x release)
+
 ;; Version 0.3.1
 ;; - Modified vertico and org modes
 ;; - Added imenu-list, ansi-color and SHR faces
@@ -1263,6 +1267,7 @@ background color that is barely perceptible."
    '(mu4e-replied-face                     ((t (:inherit nano-default))))
    '(mu4e-special-header-value-face        ((t (:inherit nano-default))))
    '(mu4e-system-face                        ((t (:inherit nano-faded))))
+   '(mu4e-related-face                       ((t (:inherit nano-faded))))
    '(mu4e-title-face                        ((t (:inherit nano-strong))))
    '(mu4e-trashed-face                       ((t (:inherit nano-faded))))
    '(mu4e-unread-face                       ((t (:inherit nano-strong))))
@@ -1539,7 +1544,7 @@ background color that is barely perceptible."
     '(magit-diff-removed                     ((t (:inherit (highlight nano-popout nano-strong)))))
     '(magit-diff-revision-summary            ((t (:inherit nano-popout))))
     '(magit-diff-their                       ((t (:inherit nano-default))))
-    '(magit-diff-whitespace-warning          ((t (:inherit nano-default))))
+    '(magit-diff-whitespace-warning          ((t (:inherit nano-subtle))))
     '(magit-diffstat-added                   ((t (:inherit nano-default))))
     '(magit-diffstat-removed                 ((t (:inherit nano-default))))
 
@@ -1559,7 +1564,7 @@ background color that is barely perceptible."
     '(magit-log-graph                        ((t (:inherit nano-default))))
 
     '(magit-mode-line-process                ((t (:inherit nano-default))))
-    '(magit-mode-line-process-error          ((t (:inherit nano-default))))
+    '(magit-mode-line-process-error          ((t (:inherit nano-critical))))
 
     '(magit-process-ng                       ((t (:inherit nano-default))))
     '(magit-process-ok                       ((t (:inherit nano-default))))
