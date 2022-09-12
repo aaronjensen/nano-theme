@@ -739,7 +739,7 @@ background color that is barely perceptible."
    ;; '(italic                      ((t (:slant italic))))
    '(italic                      ((t (:inherit nano-faded))))
    '(bold-italic                 ((t (:inherit nano-strong))))
-   '(region                      ((t (:inherit nano-subtle :distant-foreground nil))))
+   '(region                      ((t (:inherit nano-subtle :distant-foreground unspecified))))
    `(fringe                      ((,light (:foreground ,nano-light-fringe
                                                        :background unspecified
                                                        :inherit nano-faded))
