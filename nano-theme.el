@@ -1195,10 +1195,10 @@ background color that is barely perceptible."
    '(org-latex-and-related                   ((t (:inherit nano-faded))))
    '(org-level-1                             ((t (:inherit nano-strong
                                                            :weight light
-                                                           :height 1.875))))
+                                                           :height 1.46667))))
    '(org-level-2                             ((t (:inherit nano-strong
-                                                           :weight light
-                                                           :height 1.3125))))
+                                                           :weight normal
+                                                           :height 1.2))))
    '(org-level-3                             ((t (:inherit nano-strong
                                                            :weight medium
                                                            :height 1.0))))
