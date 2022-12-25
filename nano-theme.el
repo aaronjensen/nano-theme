@@ -727,12 +727,12 @@ background color that is barely perceptible."
                
    `(mode-line-inactive ((t (:inherit (nano-faded mode-line)))))
 
-   `(header-line ((,light :background ,nano-light-background-alt
-                          :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)
-                          :inherit variable-pitch)
-                  (,dark :background ,nano-dark-background-alt
-                         :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style nil)
-                         :inherit variable-pitch)))
+   `(header-line ((,light (:background ,nano-light-background-alt
+                           :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)
+                           :inherit variable-pitch))
+                  (,dark  (:background ,nano-dark-background-alt
+                           :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style nil)
+                           :inherit variable-pitch))))
   
    ;; --- Structural ---------------------------------------------------
    '(bold                        ((t (:inherit nano-strong))))
@@ -811,8 +811,26 @@ background color that is barely perceptible."
                                              :underline (:color ,nano-dark-cursor-alt :position 0)))))
    `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground))
                                     (,dark  (:foreground ,nano-dark-foreground))))
-   '(tab-line                      ((t (:inherit default))))
-   
+   `(tab-line                      ((,light (:background ,nano-light-background-alt
+                                             :box (:line-width (8 . 5) :color ,nano-light-background-alt :style nil)
+                                             :inherit variable-pitch))
+                                    (,dark  (:background ,nano-dark-background-alt
+                                             :box (:line-width (8 . 5) :color ,nano-dark-background-alt :style nil)
+                                             :inherit variable-pitch))))
+   `(tab-line-tab                 ((,light (:weight semibold
+                                            :underline (:color ,nano-light-cursor-alt :position 4)
+                                            :inherit nano-faded))
+                                   (,dark   (:weight semibold
+                                             :underline (:color ,nano-dark-cursor-alt :position 4)
+                                             :inherit nano-faded                                                     ))))
+   `(tab-line-tab-current         ((,light (:foreground ,nano-light-foreground
+                                            :inherit tab-line-tab))
+                                   (,dark   (:foreground ,nano-dark-foreground
+                                             :inherit tab-line-tab))))
+   `(tab-line-tab-inactive         ((t (:weight semibold
+                                        :inherit nano-faded))))
+   '(tab-line-tab-special          ((t (:inherit nil))))
+
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
    ;;; AJ
