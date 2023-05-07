@@ -1666,7 +1666,22 @@ background color that is barely perceptible."
                           :background "#fecaca"))))
     '(term-color-yellow ((t (:foreground "#a16207"
                              :background "#fef08a"))))
-    ))
+
+    ;; --- Treemacs ----------------------------------------------------
+    `(treemacs-root-face ((t (:inherit nano-popout
+                                       :family ,(face-attribute 'nano-sans :family)
+                                       :bold t :height 1.2))))
+    '(treemacs-git-unmodified-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-modified-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-renamed-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-ignored-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-untracked-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-added-face ((t (:inherit variable-pitch))))
+    '(treemacs-git-conflict-face ((t (:inherit variable-pitch))))
+    '(treemacs-directory-face ((t (:inherit variable-pitch))))
+    '(treemacs-directory-collapsed-face ((t (:inherit variable-pitch))))
+    '(treemacs-file-face ((t (:inherit variable-pitch))))
+    '(treemacs-tags-face ((t (:inherit variable-pitch))))))
 
   (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
                         " *Minibuf-1*" " *Echo Area 1*"))
