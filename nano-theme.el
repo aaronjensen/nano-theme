@@ -1653,7 +1653,10 @@ background color that is barely perceptible."
     
     ;; --- Terminal ----------------------------------------------------
     '(term-bold        ((t (:inherit nano-strong))))
-    '(term-color-black ((t (:inherit default))))
+    `(term-color-black ((,light (:foreground ,nano-light-foreground
+                                 :background ,nano-light-faded))
+                        (,dark (:foreground ,nano-dark-foreground
+                                :background ,nano-dark-faded))))
     '(term-color-blue ((t (:foreground "#0369a1"
                            :background "#e0f2fe"))))
     '(term-color-cyan ((t (:foreground "#0f766e"
