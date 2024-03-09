@@ -1013,17 +1013,20 @@ background color that is barely perceptible."
 
    ;; --- Nano modeline ------------------------------------------------
    `(nano-modeline-active               ((,light (:background ,nano-light-background-alt
-                                                              :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)))
-                                         (,dark (:background ,nano-dark-background-alt :box nil))))
+                                                              :box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)))
+                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)))))
    '(nano-modeline-active-name          ((t (:weight semibold
                                              :inherit (variable-pitch nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
                                              :height 0.8))))
-   '(nano-modeline-active-secondary     ((t (:inherit (nano-faded nano-modeline-active fixed-pitch)))))
+   '(nano-modeline-active-secondary     ((,light (:box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)
+                                             :inherit (nano-faded nano-modeline-active fixed-pitch)))
+                                         (,dark (:box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)
+                                             :inherit (nano-faded nano-modeline-active fixed-pitch)))))
 
    `(nano-modeline-inactive             ((,light (:background ,nano-light-background-alt
-                                                  :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)))
-                                         (,dark (:background ,nano-dark-background-alt :box nil))))
+                                                  :box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)))
+                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)))))
    '(nano-modeline-inactive-name        ((t (:weight semibold
                                              :inherit (variable-pitch nano-faded nano-modeline-inactive)))))
    '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)
