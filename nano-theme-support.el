@@ -206,6 +206,10 @@
   "Alternate background color"
   :type 'color :group 'nano-theme-light)
 
+(defcustom nano-light-tab-bar-background "#E4E7EC"
+  "Tab bar background color"
+  :type 'color :group 'nano-theme-light)
+
 (defcustom nano-light-selected-background "#FAFAFA" ;;  Very Light Grey
   "Background color for menu selections"
   :type 'color :group 'nano-theme-light)
@@ -264,6 +268,10 @@
 
 (defcustom nano-dark-background-alt "#2E3440" ;; Polar Night 0 / nord  0
   "Alternate background color"
+  :type 'color :group 'nano-theme-dark)
+
+(defcustom nano-dark-tab-bar-background "#E4E7EC"
+  "Tab bar background color"
   :type 'color :group 'nano-theme-dark)
 
 (defcustom nano-dark-selected-background "#3B4252" ;; Polar Night 1 / nord  1
@@ -816,29 +824,19 @@ background color that is barely perceptible."
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
 
    ;; --- Tab bar ------------------------------------------------------
-   `(tab-bar                       ((t (:weight light
-                                        :inherit (variable-pitch default)
-                                        ;; :background ,nano-light-highlight
-                                        :background "#E4E7EC"
-                                        ;; :underline (:color ,nano-light-cursor-alt :position 0)
-                                        :box (:line-width (12 . 8) :color nil :style flat-button)
-                                        ))))
-   `(tab-bar-tab                   ((,light (;; :background ,nano-light-highlight
-                                             :foreground ,nano-light-foreground-alt
-                                             ;; :foreground "#FF000"
-                                             :background ,nano-light-background
-                                             ;; :underline (:color ,nano-light-cursor-alt :position 0)
-                                             ;; :box (:line-width (1 . 1) :color ,nano-light-cursor-alt :style flat-button)
-                                                         ))
-                                    (,dark  (;; :background ,nano-dark-highlight
-                                             :foreground ,nano-dark-foreground-alt
+   `(tab-bar                       ((,light (:weight light
+                                             :inherit (variable-pitch default)
+                                             :background ,nano-light-tab-bar-background
+                                             :box (:line-width (12 . 8) :color nil :style flat-button)))
+                                    (,dark  (:weight light
+                                             :inherit (variable-pitch default)
+                                             :background ,nano-dark-tab-bar-background
+                                             :box (:line-width (12 . 8) :color nil :style flat-button)))))
+   `(tab-bar-tab                   ((,light (:foreground ,nano-light-foreground-alt
+                                             :background ,nano-light-background))
+                                    (,dark  (:foreground ,nano-dark-foreground-alt
                                              :underline (:color ,nano-dark-cursor-alt :position 0)))))
-   `(tab-bar-tab-inactive          ((,light (
-                                             ;; :foreground ,nano-light-foreground
-                                             :foreground ,nano-light-bold
-                                             ;; :foreground "#FF0000"
-                                                         ;; :background ,nano-light-highlight
-                                             ))
+   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-bold))
                                     (,dark  (:foreground ,nano-dark-foreground))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
                                              :box (:line-width (8 . 5) :color ,nano-light-background-alt :style nil)
