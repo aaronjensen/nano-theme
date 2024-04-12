@@ -825,6 +825,7 @@ background color that is barely perceptible."
                                         ))))
    `(tab-bar-tab                   ((,light (;; :background ,nano-light-highlight
                                              :foreground ,nano-light-foreground-alt
+                                             ;; :foreground "#FF000"
                                              :background ,nano-light-background
                                              ;; :underline (:color ,nano-light-cursor-alt :position 0)
                                              ;; :box (:line-width (1 . 1) :color ,nano-light-cursor-alt :style flat-button)
@@ -832,8 +833,11 @@ background color that is barely perceptible."
                                     (,dark  (;; :background ,nano-dark-highlight
                                              :foreground ,nano-dark-foreground-alt
                                              :underline (:color ,nano-dark-cursor-alt :position 0)))))
-   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground
-                                             ;; :background ,nano-light-highlight
+   `(tab-bar-tab-inactive          ((,light (
+                                             ;; :foreground ,nano-light-foreground
+                                             :foreground ,nano-light-bold
+                                             ;; :foreground "#FF0000"
+                                                         ;; :background ,nano-light-highlight
                                              ))
                                     (,dark  (:foreground ,nano-dark-foreground))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
