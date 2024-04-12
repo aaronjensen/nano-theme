@@ -742,9 +742,9 @@ background color that is barely perceptible."
    ;; --- Header & mode line -------------------------------------------
 
    `(mode-line ((,light (:background ,nano-light-background-alt
-                         :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)))
+                         :box (:line-width (16 . 4) :color ,nano-light-background-alt :style nil)))
         (,dark  (:background ,nano-dark-background-alt
-                 :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style nil)))))
+                 :box (:line-width (16 . 4) :color ,nano-dark-background-alt :style nil)))))
    `(mode-line-highlight ((t (:inherit nano-popout))))
    `(mode-line-buffer-id ((t (:weight regular))))
    `(mode-line-emphasis  ((t (:weight regular))))
@@ -752,10 +752,10 @@ background color that is barely perceptible."
    `(mode-line-inactive ((t (:inherit (nano-faded mode-line)))))
 
    `(header-line ((,light (:background ,nano-light-background-alt
-                           :box (:line-width (8 . 4) :color ,nano-light-background-alt :style nil)
+                           :box (:line-width (16 . 4) :color ,nano-light-background-alt :style nil)
                            :inherit variable-pitch))
                   (,dark  (:background ,nano-dark-background-alt
-                           :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style nil)
+                           :box (:line-width (16 . 4) :color ,nano-dark-background-alt :style nil)
                            :inherit variable-pitch))))
 
    ;; --- Structural ---------------------------------------------------
@@ -816,16 +816,25 @@ background color that is barely perceptible."
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
 
    ;; --- Tab bar ------------------------------------------------------
-   '(tab-bar                       ((t (:weight light
+   `(tab-bar                       ((t (:weight light
                                         :inherit (variable-pitch default)
-                                        :box (:line-width (8 . 2) :color nil :style flat-button)))))
-   `(tab-bar-tab                   ((,light (:background ,nano-light-highlight
+                                        ;; :background ,nano-light-highlight
+                                        :background "#E4E7EC"
+                                        ;; :underline (:color ,nano-light-cursor-alt :position 0)
+                                        :box (:line-width (12 . 8) :color nil :style flat-button)
+                                        ))))
+   `(tab-bar-tab                   ((,light (;; :background ,nano-light-highlight
                                              :foreground ,nano-light-foreground-alt
-                                             :underline (:color ,nano-light-cursor-alt :position 0)))
-                                    (,dark  (:background ,nano-dark-highlight
+                                             :background ,nano-light-background
+                                             ;; :underline (:color ,nano-light-cursor-alt :position 0)
+                                             ;; :box (:line-width (1 . 1) :color ,nano-light-cursor-alt :style flat-button)
+                                                         ))
+                                    (,dark  (;; :background ,nano-dark-highlight
                                              :foreground ,nano-dark-foreground-alt
                                              :underline (:color ,nano-dark-cursor-alt :position 0)))))
-   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground))
+   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-foreground
+                                             ;; :background ,nano-light-highlight
+                                             ))
                                     (,dark  (:foreground ,nano-dark-foreground))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
                                              :box (:line-width (8 . 5) :color ,nano-light-background-alt :style nil)
@@ -1019,20 +1028,20 @@ background color that is barely perceptible."
 
    ;; --- Nano modeline ------------------------------------------------
    `(nano-modeline-active               ((,light (:background ,nano-light-background-alt
-                                                              :box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)))
-                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)))))
+                                                              :box (:line-width (16 . 4) :color ,nano-light-background-alt :style flat-button)))
+                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (16 . 4) :color ,nano-dark-background-alt :style flat-button)))))
    '(nano-modeline-active-name          ((t (:weight semibold
                                              :inherit (variable-pitch nano-modeline-active)))))
    '(nano-modeline-active-primary       ((t (:inherit (nano-default nano-modeline-active)
                                              :height 0.8))))
-   '(nano-modeline-active-secondary     ((,light (:box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)
+   '(nano-modeline-active-secondary     ((,light (:box (:line-width (16 . 4) :color ,nano-light-background-alt :style flat-button)
                                              :inherit (nano-faded nano-modeline-active fixed-pitch)))
-                                         (,dark (:box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)
+                                         (,dark (:box (:line-width (16 . 4) :color ,nano-dark-background-alt :style flat-button)
                                              :inherit (nano-faded nano-modeline-active fixed-pitch)))))
 
    `(nano-modeline-inactive             ((,light (:background ,nano-light-background-alt
-                                                  :box (:line-width (8 . 4) :color ,nano-light-background-alt :style flat-button)))
-                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (8 . 4) :color ,nano-dark-background-alt :style flat-button)))))
+                                                  :box (:line-width (16 . 4) :color ,nano-light-background-alt :style flat-button)))
+                                         (,dark (:background ,nano-dark-background-alt :box (:line-width (16 . 4) :color ,nano-dark-background-alt :style flat-button)))))
    '(nano-modeline-inactive-name        ((t (:weight semibold
                                              :inherit (variable-pitch nano-faded nano-modeline-inactive)))))
    '(nano-modeline-inactive-primary     ((t (:inherit (nano-faded nano-modeline-inactive)
