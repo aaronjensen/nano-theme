@@ -456,13 +456,13 @@ background color that is barely perceptible."
   (setq blink-cursor-mode nil)
 
   ;; No tooltips
-  (tooltip-mode -1)
+  ;; (tooltip-mode -1)
 
   ;; No scroll bars
-  (scroll-bar-mode -1)
+  ;; (scroll-bar-mode -1)
 
   ;; No toolbar
-  (tool-bar-mode -1)
+  ;; (tool-bar-mode -1)
 
   ;; Default frame settings
   (setq default-frame-alist
@@ -474,6 +474,7 @@ background color that is barely perceptible."
                  '(left-fringe . 0)
                  '(right-fringe . 0)
                  '(undecorated-round . t) ;; emacs-plu@29 only
+                 '(scroll-bar-mode . -1)
                  '(tool-bar-lines . 0)
                  '(menu-bar-lines . 0))))
 
@@ -492,7 +493,7 @@ background color that is barely perceptible."
                           'wrap (make-glyph-code ?- 'nano-faded))
 
   ;; Nerd font for glyph icons
-  (let ((roboto-nerd (font-spec :name "RobotoMono Nerd Font Mono")))
+  (let ((roboto-nerd (font-spec :name "RobotoMono Nerd Font")))
     (if (find-font roboto-nerd)
         (set-fontset-font t '(#xe000 . #xffdd) roboto-nerd)
       (message "Roboto Mono Nerd font has not been found on your system"))))
@@ -514,7 +515,6 @@ background color that is barely perceptible."
 ;;       (push attribute properties)
 ;;       (push tag properties)))))
 ;;       properties)))
-
 
 (defun nano-new-frame (&optional mode)
   "This funcion creates a new frame in light or dark MODE."
@@ -860,9 +860,14 @@ background color that is barely perceptible."
 
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
-   '(line-number-current-line     ((t (:inherit nil))))
-   '(line-number-major-tick       ((t (:inherit nano-faded))))
+   '(line-number-current-line     ((t (:inherit (nano-strong hl-line)))))
+   `(line-number-major-tick       ((t (:inherit nano-default))))
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
+
+   ;; --- Diff HL (fringe mode) ----------------------------------------
+   '(diff-hl-change                  ((t (:inherit nano-faded-i))))
+   '(diff-hl-insert                  ((t (:inherit nano-salient-i))))
+   '(diff-hl-delete                  ((t (:inherit nano-critical-i))))
 
    ;; --- Font lock ----------------------------------------------------
    '(font-lock-comment-face        ((t (:inherit nano-faded))))
@@ -1051,7 +1056,6 @@ background color that is barely perceptible."
                                              :height 0.8))))
    '(nano-modeline-inactive-secondary   ((t (:inherit (nano-faded nano-modeline-inactive fixed-pitch)))))
 
-
    ;; --- nano agenda ---------------------------------------------------------
    '(nano-agenda-button               ((t (:inherit (nano-faded)))))
    '(nano-agenda-day-name             ((t (:inherit (nano-faded)))))
@@ -1099,6 +1103,12 @@ background color that is barely perceptible."
    '(diff-refine-changed            ((t (:inherit nano-popout))))
    '(diff-refine-removed            ((t (:inherit nano-faded
                                          :strike-through t))))
+
+   ;; --- icomplete --------------------------------------------------------
+   '(icomplete-first-match          ((t (:inherit nano-strong))))
+   '(icomplete-selected-match       ((t (:inherit nano-strong))))
+   '(icomplete-section              ((t (:inherit nano-strong))))
+
    ;; --- Vertico --------------------------------------------------------
    '(vertico-current                       ((t (:inherit (nano-strong
                                                           nano-subtle)))))
@@ -1467,9 +1477,14 @@ background color that is barely perceptible."
     '(rst-reference                         ((t (:inherit nano-salient))))
     '(rst-transition                        ((t (:inherit nano-default))))
 
-
+    ;; --- Elpher ----------------------------------------------------
+    '(elpher-gemini-heading1                 ((t (:inherit nano-strong))))
+    '(elpher-gemini-heading2                 ((t (:inherit nano-strong))))
+    '(elpher-gemini-heading3                 ((t (:inherit nano-strong))))
+ 
     ;; ---SHR ---------------------------------------------------------
     '(shr-abbreviation                    ((t (:inherit nano-popout))))
+    '(shr-text                            ((t (:inherit nano-default))))
     '(shr-h1                              ((t (:inherit nano-strong))))
     '(shr-h2                              ((t (:inherit nano-strong))))
     '(shr-h3                              ((t (:inherit nano-strong))))
