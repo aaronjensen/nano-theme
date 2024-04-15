@@ -824,20 +824,9 @@ background color that is barely perceptible."
    '(tty-menu-selected-face        ((t (:inherit nano-salient-i))))
 
    ;; --- Tab bar ------------------------------------------------------
-   `(tab-bar                       ((,light (:weight light
-                                             :inherit (variable-pitch default)
-                                             :background ,nano-light-tab-bar-background
-                                             :box (:line-width (12 . 8) :color nil :style flat-button)))
-                                    (,dark  (:weight light
-                                             :inherit (variable-pitch default)
-                                             :background ,nano-dark-tab-bar-background
-                                             :box (:line-width (12 . 8) :color nil :style flat-button)))))
-   `(tab-bar-tab                   ((,light (:foreground ,nano-light-foreground-alt
-                                             :background ,nano-light-background))
-                                    (,dark  (:foreground ,nano-dark-foreground-alt
-                                             :underline (:color ,nano-dark-cursor-alt :position 0)))))
-   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-bold))
-                                    (,dark  (:foreground ,nano-dark-foreground))))
+   '(tab-bar                       ((t (:inherit default))))
+   '(tab-bar-tab                   ((t (:inherit default))))
+   '(tab-bar-tab-inactive          ((t (:inherit nano-faded))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
                                              :box (:line-width (8 . 5) :color ,nano-light-background-alt :style nil)
                                              :inherit variable-pitch))
@@ -857,6 +846,22 @@ background color that is barely perceptible."
    `(tab-line-tab-inactive         ((t (:weight semibold
                                         :inherit nano-faded))))
    '(tab-line-tab-special          ((t (:inherit nil))))
+
+   ;; --- Modern Tab bar ------------------------------------------------------
+   `(modern-tab-bar                ((,light (:weight light
+                                             :box (:line-width (12 . 8) :color nil :style flat-button)
+                                             :background ,nano-light-tab-bar-background
+                                             :inherit (variable-pitch default)))
+                                    (,dark  (:weight light
+                                             :box (:line-width (12 . 8) :color nil :style flat-button)
+                                             :background ,nano-dark-tab-bar-background
+                                             :inherit (variable-pitch default)))))
+   `(modern-tab-bar-tab            ((,light (:foreground ,nano-light-foreground-alt
+                                             :background ,nano-light-background))
+                                    (,dark  (:foreground ,nano-dark-foreground-alt
+                                             :background ,nano-dark-background))))
+   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-bold))
+                                    (,dark  (:foreground ,nano-dark-foreground))))
 
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
