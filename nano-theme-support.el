@@ -865,7 +865,7 @@ background color that is barely perceptible."
 
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
-   '(line-number-current-line     ((t (:inherit (nano-strong hl-line)))))
+   '(line-number-current-line     ((t (:inherit (nano-strong)))))
    `(line-number-major-tick       ((t (:inherit nano-default))))
    '(line-number-minor-tick       ((t (:inherit nano-faded))))
 
