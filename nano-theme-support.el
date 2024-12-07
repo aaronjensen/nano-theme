@@ -796,9 +796,9 @@ background color that is barely perceptible."
    '(isearch                       ((t (:inherit nano-strong))))
    '(isearch-fail                  ((t (:inherit nano-faded))))
    `(show-paren-match              ((,light (:background ,nano-light-background-alt
-                                                         :inherit nano-strong))
+                                             :inherit nano-strong))
                                     (,dark (:background ,nano-dark-background-alt
-                                                        :inherit nano-strong))))
+                                            :inherit nano-strong))))
    '(show-paren-mismatch           ((t (:inherit nano-critical))))
    `(lazy-highlight                ((,light (:inherit nano-default
                                              :background ,nano-light-selected-background))
@@ -811,7 +811,10 @@ background color that is barely perceptible."
    '(completions-first-difference  ((t (:inherit unspecified))))
    '(child-frame-border            ((t (:background "#A1A1AA"))))
    '(tooltip                       ((t (:inherit nano-subtle))))
-   '(read-multiple-choice-face     ((t (:inherit nano-strong))))
+   `(read-multiple-choice-face     ((,light (:foreground ,nano-light-salient
+                                             :inherit nano-strong))
+                                    (,dark (:foreground ,nano-dark-salient
+                                            :inherit nano-strong))))
    '(nobreak-hyphen                ((t (:inherit nano-popout))))
    '(nobreak-space                 ((t (:inherit nano-popout))))
    '(help-argument-name            ((t (:inherit nano-faded))))
