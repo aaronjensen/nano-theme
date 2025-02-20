@@ -831,10 +831,10 @@ background color that is barely perceptible."
    '(tab-bar-tab                   ((t (:inherit default))))
    '(tab-bar-tab-inactive          ((t (:inherit nano-faded))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
-                                             :box (:line-width (8 . 5) :color ,nano-light-background-alt :style nil)
+                                             :box (:line-width (8 . 6) :color ,nano-light-background-alt :style nil)
                                              :inherit variable-pitch))
                                     (,dark  (:background ,nano-dark-background-alt
-                                             :box (:line-width (8 . 5) :color ,nano-dark-background-alt :style nil)
+                                             :box (:line-width (8 . 6) :color ,nano-dark-background-alt :style nil)
                                              :inherit variable-pitch))))
    `(tab-line-tab                 ((,light (:weight semibold
                                             :underline (:color ,nano-light-cursor-alt :position 4)
