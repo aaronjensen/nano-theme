@@ -830,6 +830,7 @@ background color that is barely perceptible."
    '(tab-bar                       ((t (:inherit default))))
    '(tab-bar-tab                   ((t (:inherit default))))
    '(tab-bar-tab-inactive          ((t (:inherit nano-faded))))
+   `(tab-bar-tab-highlight         ((t (:inherit nano-faded))))
    `(tab-line                      ((,light (:background ,nano-light-background-alt
                                              :box (:line-width (8 . 6) :color ,nano-light-background-alt :style nil)
                                              :inherit variable-pitch))
@@ -863,8 +864,10 @@ background color that is barely perceptible."
                                              :background ,nano-light-background))
                                     (,dark  (:foreground ,nano-dark-foreground-alt
                                              :background ,nano-dark-background))))
-   `(tab-bar-tab-inactive          ((,light (:foreground ,nano-light-bold))
+   `(modern-tab-bar-tab-inactive   ((,light (:foreground ,nano-light-bold))
                                     (,dark  (:foreground ,nano-dark-foreground))))
+   `(modern-tab-bar-tab-highlight  ((,light (:background ,nano-light-fringe))
+                                    (,dark  (:background ,nano-dark-fringe))))
 
    ;; --- Line numbers -------------------------------------------------
    '(line-number                  ((t (:inherit nano-faded))))
